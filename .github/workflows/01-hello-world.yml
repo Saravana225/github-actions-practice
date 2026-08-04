@@ -1,0 +1,22 @@
+# this is a sample yaml file
+
+name: Saravanan
+
+jobs:
+  year: 4
+  title: Cloud Engineer
+  skills: [AWS, Azure, GCP, Docker, Kubernetes]
+
+jobs:
+  year: 4
+  title: Cloud Engineer
+  skills: 
+    - AWS
+    - Azure
+    - GCP
+    - Docker
+    - Kubernetes
+
+run: | 
+  echo "Hello, my name is Saravanan and I am a Cloud Engineer with 4 years of experience."
+  echo "I have expertise in AWS, Azure, GCP, Docker, and Kubernetes."
