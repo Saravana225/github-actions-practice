@@ -1,22 +1,16 @@
-# this is a sample yaml file
+name: 01-world
 
-name: Saravanan
-
-jobs:
-  year: 4
-  title: Cloud Engineer
-  skills: [AWS, Azure, GCP, Docker, Kubernetes]
+on:workflow_dispatch
 
 jobs:
-  year: 4
-  title: Cloud Engineer
-  skills: 
-    - AWS
-    - Azure
-    - GCP
-    - Docker
-    - Kubernetes
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a greeting
+        run: echo "Hello Githup Actions!!!"
 
-run: | 
-  echo "Hello, my name is Saravanan and I am a Cloud Engineer with 4 years of experience."
-  echo "I have expertise in AWS, Azure, GCP, Docker, and Kubernetes."
+      - name: Print Multi
+        run: |
+          echo "This step runs several shell commands"
+          echo "Today's runner is: $RUNNER_OS"
+          echo "The Repo is      : $GITHUB_REPOSITORY"
