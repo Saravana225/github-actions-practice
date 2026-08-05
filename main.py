@@ -1,8 +1,1 @@
 print("Hello World")
-print("Hello World .. second ... Saravanan")
-print("Hello World .. second ... Saravanan2...")
-print("Hello World .. second ... Saravanan3...")
-print("Hello World .. second ... Saravanan4...")
-print("Hello World .. second ... Saravanan5...")
-print("Hello World .. second ... Saravanan6...")
-print("Hello World .. second ... Saravanan6...")
