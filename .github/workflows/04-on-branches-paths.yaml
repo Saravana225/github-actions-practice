@@ -12,12 +12,12 @@ on:
     branches:
       - main
     paths:
-      - 'sample-app/**'     # Triggers when sample-app folder changes
-      - '**.py'             # Triggers when any Python file changes
+      - 'sample-app/**'
+      - '**.py'
 
 jobs:
-  filtered-build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: This only runs for the branches/paths above
-        run: echo "New: Relevant change detected on branch ${{ github.ref_name }}"
+  filtered-build:          # Level 1: Under 'jobs:' (2 spaces)
+    runs-on: ubuntu-latest # Level 2: Inside job (4 spaces)
+    steps:                 # Level 2: Inside job (4 spaces) <--- FIX WAS HERE
+      - name: This only runs for the branches/paths above   # Level 3 (6 spaces, '-' at 6)
+        run: echo "New: Relevant change detected on branch ${{ github.ref_name }}" # Aligned with 'name:'
