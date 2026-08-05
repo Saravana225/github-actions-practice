@@ -25,6 +25,6 @@ on:
 jobs:
   filtered-build:
     runs-on: ubuntu-latest
-    steps:
-      - name: This only runs for the branches/paths above
+steps:      
+    - name: This only runs for the branches/paths above        
         run: echo "New: Relevant change detected on branch ${{ github.ref_name }}"
