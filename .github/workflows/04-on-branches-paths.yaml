@@ -19,5 +19,5 @@ jobs:
   filtered-build:          # Level 1: Under 'jobs:' (2 spaces)
     runs-on: ubuntu-latest # Level 2: Inside job (4 spaces)
     steps:                 # Level 2: Inside job (4 spaces) <--- FIX WAS HERE
-      - name: This only runs for the branches/paths above   # Level 3 (6 spaces, '-' at 6)
-        run: echo "New: Relevant change detected on branch ${{ github.ref_name }}" # Aligned with 'name:'
+    - name: This only runs for the branches/paths above   # Level 3 (6 spaces, '-' at 6)
+      run: echo "New: Relevant change detected on branch ${{ github.ref_name }}" # Aligned with 'name:'
