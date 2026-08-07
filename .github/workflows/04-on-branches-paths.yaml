@@ -1,16 +1,30 @@
+# 04 - Trigger filters: branches, tags, and paths
+# Don't run on EVERY push — only when it actually matters.
+# This saves CI minutes and avoids noisy, irrelevant runs.
+#
+# RULE: use EITHER `branches` OR `branches-ignore` (not both).
+#       Same for `paths`/`paths-ignore` and `tags`/`tags-ignore`.
+
 name: 04 - On Push (filtered)
 
 on:
   push:
     branches:
       - main
+      - 'release/**'        # any branch starting with release/  (** = wildcard)
     paths:
-      - 'sample-app/**'
-      - '**.py'
+      - 'sample-app/**'     # only run if something in the app folder changed
+      - '**.js'             # ...or any JavaScript file, anywhere in the repo
+      # NOTE: paths are matched from the REPO ROOT. Our app lives in
+      # sample-app/, so a filter of 'src/**' would never match anything
+      # and the workflow would silently never run.
+      # To instead run on everything EXCEPT docs, delete `paths:` above and use:
+      #   paths-ignore:
+      #     - '**.md'
 
 jobs:
-  filtered-build:          # Level 1: Under 'jobs:' (2 spaces)
-    runs-on: ubuntu-latest # Level 2: Inside job (4 spaces)
-    steps:                 # Level 2: Inside job (4 spaces) <--- FIX WAS HERE
-      - name: This only runs for the branches/paths above   # Level 3 (6 spaces, '-' at 6)
-        run: echo "New: Relevant change detected on branch ${{ github.ref_name }}" # Aligned with 'name:'
+  filtered-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: This only runs for the branches/paths above
+        run: echo "Relevant change detected on branch ${{ github.ref_name }}"
