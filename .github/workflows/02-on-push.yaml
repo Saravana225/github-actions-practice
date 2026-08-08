@@ -16,3 +16,27 @@ jobs:
           echo "Branch ref : $GITHUB_REF"          # -> refs/heads/<branch>
           echo "Commit SHA : $GITHUB_SHA"
           echo "Pushed by  : $GITHUB_ACTOR"
+- name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # Mail server settings
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          
+          # Authentication via Repository Secrets
+          username: ${{ secrets.MY_HITHUB_EMAIL }}
+          password: ${{ secrets.MY_HITHUB_SECRET }}
+          
+          # Email Content
+          subject: "New Code Pushed to ${{ github.repository }}"
+          to: recipient-email@example.com
+          from: GitHub Actions <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            New code was pushed to your repository!
+            
+            Pushed by: ${{ github.actor }}
+            Branch: ${{ github.ref_name }}
+            Commit SHA: ${{ github.sha }}
+            Commit Link: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+          
