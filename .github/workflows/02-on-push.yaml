@@ -31,7 +31,7 @@ jobs:
           
           # Email Content
           subject: "New Code Pushed to ${{ github.repository }}"
-          to: recipient-email@example.com
+          to: saravanavijayan@gmail.com
           from: GitHub Actions <${{ secrets.MAIL_USERNAME }}>
           body: |
             New code was pushed to your repository!
